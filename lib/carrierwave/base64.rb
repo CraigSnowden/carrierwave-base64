@@ -12,6 +12,10 @@ module Carrierwave
       ActiveSupport.on_load :mongoid do
         Mongoid::Document::ClassMethods.send :include, Carrierwave::Base64::Adapter
       end
+
+      ActiveSupport.on_load :active_node do
+        Neo4j::ActiveNode::ClassMethods.send :include, Carrierwave::Base64::Adapter
+      end
     end
   end
 end
